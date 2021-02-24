@@ -1,0 +1,53 @@
+##	Quick tutorial script for annova
+##	Assuming we are at the annova root directory, i.e.
+##	/ddn/gs1/home/li11/project2021/SEQC/annovar/
+##	or, /ddn/gs1/home/li11/tools/annovar/	
+##	https://annovar.openbioinformatics.org/en/latest/user-guide/startup/
+##===============================================================================
+
+##========================================
+##	Prepare hg38 human database
+##========================================
+./annotate_variation.pl -buildver hg38 -downdb -webfrom annovar refGene humandb/ & 
+
+./annotate_variation.pl -buildver hg38 -downdb cytoBand humandb/
+
+./annotate_variation.pl -buildver hg38 -downdb -webfrom annovar exac03 humandb/ 
+
+./annotate_variation.pl -buildver hg38 -downdb -webfrom annovar avsnp147 humandb/ 
+
+./annotate_variation.pl -buildver hg38 -downdb -webfrom annovar dbnsfp30a humandb/ 
+
+
+
+##===================================================
+##	Here are what I got from the new download
+##===================================================
+
+-rw-r--r-- 1 li11 dirib  6285198687 Dec  5  2019 humandb/hg38_avsnp147.txt
+-rw-r--r-- 1 li11 dirib   926687401 Dec  5  2019 humandb/hg38_avsnp147.txt.idx
+-rw-r--r-- 1 li11 dirib       50468 Mar 11  2019 humandb/hg38_cytoBand.txt
+-rw-r--r-- 1 li11 dirib 14010260483 Dec  5  2019 humandb/hg38_dbnsfp30a.txt
+-rw-r--r-- 1 li11 dirib    18718989 Dec  5  2019 humandb/hg38_dbnsfp30a.txt.idx
+-rw-r--r-- 1 li11 dirib   629135889 Dec  5  2019 humandb/hg38_exac03.txt
+-rw-r--r-- 1 li11 dirib    23464492 Dec  5  2019 humandb/hg38_exac03.txt.idx
+-rw-r--r-- 1 li11 dirib   272386433 Dec  5  2019 humandb/hg38_refGeneMrna.fa
+-rw-r--r-- 1 li11 dirib    23190779 Dec  5  2019 humandb/hg38_refGene.txt
+-rw-r--r-- 1 li11 dirib      947628 Dec 17  2019 humandb/hg38_refGeneVersion.txt
+
+##===================================================
+##      Here are what I got from the new download
+##===================================================
+
+./annotate_variation.pl -buildver hg19 -downdb cytoBand humandb/
+./annotate_variation.pl -buildver hg19 -downdb -webfrom annovar exac03 humandb/ 
+./annotate_variation.pl -buildver hg19 -downdb -webfrom annovar avsnp147 humandb/ 
+./annotate_variation.pl -buildver hg19 -downdb -webfrom annovar dbnsfp30a humandb/ 
+
+
+
+
+
+./table_annovar.pl example/ex1.avinput humandb/ -buildver hg19 -out myanno -remove -protocol refGene,cytoBand,exac03,avsnp147,dbnsfp30a -operation gx,r,f,f,f -nastring . -csvout -polish -xref example/gene_xref.txt
+
+
