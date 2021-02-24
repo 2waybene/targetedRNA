@@ -1,0 +1,12 @@
+# ./annotate_variation.pl -buildver hg38 -downdb -webfrom annovar refGene humandb/ & 
+
+./annotate_variation.pl -buildver hg38 -downdb cytoBand humandb/
+
+./annotate_variation.pl -buildver hg38 -downdb -webfrom annovar exac03 humandb/ 
+
+./annotate_variation.pl -buildver hg38 -downdb -webfrom annovar avsnp147 humandb/ 
+
+./annotate_variation.pl -buildver hg38 -downdb -webfrom annovar dbnsfp30a humandb/ 
+
+
+
