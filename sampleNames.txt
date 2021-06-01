@@ -1,0 +1,1 @@
+../dataFromFDA/ROCR2_sampleA/DNA_VAR/sampleNames.txt
